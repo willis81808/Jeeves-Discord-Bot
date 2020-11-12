@@ -34,7 +34,28 @@ namespace TestDiscordBot.Modules
                 .AddField("!ping", "Test if the bot is responsive")
                 .AddField("!mute", "ADMIN ONLY - Server Mute all users in your current voice channel")
                 .AddField("!unmute", "ADMIN ONLY - Unmute all users in your current voice channel")
-                .AddField("!purge", "ADMIN ONLY - Delete all messages in this channel");
+                .AddField("!purge", "ADMIN ONLY - Delete all messages in this channel")
+                .WithColor(rng.Color());
+            
+            await ReplyAsync(embed: embed.Build());
+        }
+
+        [Command("rules")]
+        public async Task Rules()
+        {
+            var embed = new EmbedBuilder()
+                .WithTitle("The 10 Commandments")
+                .AddField("1)", "Thou shalt be even tempered and good natured. For 'tis just a game.")
+                .AddField("2)", "Thou shalt not stream publicly without the consent of thy brotheren. Heed not this commandment, and thou shalt be demonotized!")
+                .AddField("3)", "Thou shalt not mention anything game-related save for the time of meeting and voting!")
+                .AddField("4)", "Thou shalt not cheat.")
+                .AddField("5)", "Thou shalt not cross-team.")
+                .AddField("6)", "Thou shalt not covet thy neighbor's color.")
+                .AddField("7)", "Thou shalt perform thine tasks, even in death.")
+                .AddField("8)", "Thou shalt lose or win with grace, nary a grudge be held among you.")
+                .AddField("9)", "Thou shalt not AFK")
+                .AddField("10)", "Thou shalt kill Lonk first.")
+                .WithColor(rng.Color());
 
             await ReplyAsync(embed: embed.Build());
         }
